@@ -1,0 +1,460 @@
+
+.exo-header,
+.exo-header * {
+  box-sizing: border-box;
+}
+
+.exo-header {
+  min-height: 84px;
+  padding: 14px clamp(20px, 6vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 5;
+  background: #003629;
+  color: #fffaf0;
+  border-bottom: 1px solid rgba(233, 189, 89, 0.35);
+}
+
+.exo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.exo-brand-icon {
+  color: #e9bd59;
+  font: 44px Georgia, serif;
+}
+
+.exo-brand-name {
+  display: block;
+  font: 32px/1.1 "Playfair Display", Georgia, serif;
+}
+
+.exo-brand-tagline {
+  display: block;
+  margin-top: 5px;
+  color: #e9bd59;
+  font: 8px "DM Sans", sans-serif;
+  letter-spacing: 1.8px;
+}
+
+.exo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(15px, 2.5vw, 36px);
+}
+
+.exo-nav a {
+  position: relative;
+  padding: 10px 0;
+  color: #fffaf0;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.25s ease;
+}
+
+.exo-nav a:hover,
+.exo-nav a.exo-active {
+  color: #e9bd59;
+}
+
+.exo-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 3px;
+  height: 2px;
+  background: #e9bd59;
+  transition: right 0.25s ease;
+}
+
+.exo-nav a:hover::after,
+.exo-nav a.exo-active::after {
+  right: 0;
+}
+
+.exo-header-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 17px;
+  border: 1px solid #e9bd59;
+  border-radius: 40px;
+  color: #fffaf0;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 12px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.exo-header-order:hover {
+  background: rgba(233, 189, 89, 0.12);
+  transform: translateY(-2px);
+}
+
+.exo-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(520px, 58vw, 750px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fffaf2;
+  background: #002c21;
+}
+
+.exo-hero-photo {
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 32%;
+  background-image: url("/images/exoflora-hero-bouquet.png");
+  background-repeat: no-repeat;
+  background-position: center 45%;
+  background-size: cover;
+  animation: exo-photo-appear 1s ease-out both;
+}
+
+.exo-hero-overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 39, 28, 0.98) 0%,
+    rgba(0, 39, 28, 0.94) 28%,
+    rgba(0, 39, 28, 0.66) 46%,
+    rgba(0, 25, 17, 0.05) 75%
+  );
+}
+
+.exo-hero-content {
+  width: 68%;
+  padding: 70px 0 90px clamp(28px, 6.4vw, 100px);
+  animation: exo-content-appear 0.8s ease-out both;
+}
+
+.exo-eyebrow {
+  margin: 0 0 22px;
+  color: #f3e8cf;
+  font-size: 10px;
+  letter-spacing: 2.2px;
+}
+
+.exo-eyebrow span {
+  padding: 0 6px;
+  color: #e9bd59;
+}
+
+.exo-hero h1 {
+  margin: 0;
+  font: 500 clamp(50px, 6.3vw, 88px)/1.02
+    "Playfair Display", Georgia, serif;
+  letter-spacing: -2px;
+}
+
+.exo-hero-description {
+  margin: 24px 0 32px;
+  color: #f7f2e8;
+  font: 400 clamp(17px, 1.7vw, 23px)/1.5
+    "Playfair Display", Georgia, serif;
+}
+
+.exo-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.exo-button {
+  min-height: 48px;
+  padding: 0 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exo-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.exo-button-gold {
+  color: #183a2c;
+  background: linear-gradient(135deg, #f5d47f, #e7b64d);
+}
+
+.exo-button-outline {
+  color: #fffaf2;
+  background: rgba(0, 40, 29, 0.35);
+  border: 1px solid #f3e6c8;
+}
+
+.exo-scroll-indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 7%;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  animation: exo-scroll-float 1.8s ease-in-out infinite;
+}
+
+.exo-section-heading {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 42px clamp(28px, 6.4vw, 100px);
+  color: #073b2d;
+  background: #faf7ef;
+  scroll-margin-top: 15px;
+}
+
+.exo-section-heading > div > p {
+  margin: 0 0 8px;
+  color: #a17a30;
+  font: 600 9px "DM Sans", sans-serif;
+  letter-spacing: 1.8px;
+}
+
+.exo-section-heading h2 {
+  margin: 0 0 8px;
+  font: 500 clamp(34px, 4vw, 49px)/1.1
+    "Playfair Display", Georgia, serif;
+}
+
+.exo-section-heading > div > span {
+  color: #50665a;
+  font-size: 13px;
+}
+
+.exo-section-heading > a {
+  padding-bottom: 7px;
+  color: #073b2d;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.exo-section-heading > a:hover {
+  color: #a17a30;
+}
+
+@keyframes exo-content-appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes exo-photo-appear {
+  from {
+    opacity: 0.6;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes exo-scroll-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+@media (max-width: 950px) {
+  .exo-header {
+    padding-inline: 22px;
+    gap: 15px;
+  }
+
+  .exo-brand-name {
+    font-size: 27px;
+  }
+
+  .exo-nav {
+    gap: 14px;
+  }
+
+  .exo-nav a {
+    font-size: 11px;
+  }
+
+  .exo-header-order {
+    padding: 11px;
+    font-size: 11px;
+  }
+
+  .exo-hero-content {
+    width: 72%;
+  }
+}
+
+@media (max-width: 700px) {
+  .exo-header {
+    min-height: auto;
+    padding: 13px 17px 8px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .exo-brand-icon {
+    font-size: 34px;
+  }
+
+  .exo-brand-name {
+    font-size: 26px;
+  }
+
+  .exo-brand-tagline {
+    font-size: 7px;
+  }
+
+  .exo-header-order {
+    padding: 10px 12px;
+    font-size: 0;
+  }
+
+  .exo-header-order span {
+    font-size: 18px;
+  }
+
+  .exo-nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .exo-nav a {
+    flex-shrink: 0;
+    font-size: 11px;
+  }
+
+  .exo-hero {
+    min-height: 680px;
+    align-items: end;
+  }
+
+  .exo-hero-photo {
+    inset: 0;
+    height: 75%;
+    background-size: auto 100%;
+    background-position: center top;
+  }
+
+  .exo-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 38, 27, 0.02) 0%,
+      rgba(0, 38, 27, 0.12) 27%,
+      rgba(0, 38, 27, 0.78) 52%,
+      #002c21 76%,
+      #002c21 100%
+    );
+  }
+
+  .exo-hero-content {
+    width: 100%;
+    padding: 300px 23px 75px;
+  }
+
+  .exo-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .exo-eyebrow span {
+    padding: 0 2px;
+  }
+
+  .exo-hero h1 {
+    font-size: clamp(44px, 11.5vw, 65px);
+    letter-spacing: -1.5px;
+  }
+
+  .exo-hero-description {
+    margin: 17px 0 24px;
+    font-size: 18px;
+  }
+
+  .exo-button {
+    min-height: 45px;
+    padding-inline: 16px;
+    font-size: 11px;
+  }
+
+  .exo-scroll-indicator {
+    display: none;
+  }
+
+  .exo-section-heading {
+    padding: 34px 22px;
+    align-items: start;
+  }
+
+  .exo-section-heading h2 {
+    font-size: 35px;
+  }
+
+  .exo-section-heading > div > span {
+    font-size: 12px;
+  }
+
+  .exo-section-heading > a {
+    max-width: 110px;
+    text-align: right;
+    line-height: 1.5;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 390px) {
+  .exo-hero {
+    min-height: 650px;
+  }
+
+  .exo-hero-content {
+    padding-inline: 18px;
+  }
+
+  .exo-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .exo-button {
+    min-width: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exo-hero *,
+  .exo-header *,
+  .exo-section-heading * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
